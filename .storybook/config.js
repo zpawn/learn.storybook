@@ -1,7 +1,10 @@
-import { configure } from '@storybook/react';
+import { configure } from "@storybook/react";
+import "../node_modules/papercss/dist/paper.min.css";
+
+const req = require.context("../src", true, /.stories.js$/);
 
 function loadStories() {
-  require('../src/stories');
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);
