@@ -56,7 +56,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --max-warnings=0 --no-ignore",
+      "eslint --max-warnings=0",
       "git add"
     ],
     "*.{html,js,json,css}": [
