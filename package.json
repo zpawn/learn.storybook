@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "papercss": "^1.6.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
@@ -14,7 +15,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "lint": "eslint src/",
+    "lint:fix": "eslint --debug src/ --fix",
+    "prettier": "prettier --write 'src/**/*.js'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,6 +41,27 @@
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addons": "^5.0.11",
     "@storybook/react": "^5.0.11",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "^8.0.6",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.4.0",
+    "lint-staged": "^8.2.0",
+    "prettier": "^1.18.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --max-warnings=0",
+      "git add"
+    ],
+    "*.{html,js,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
