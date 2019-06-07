@@ -1,19 +1,20 @@
-import React from 'react';
+import React from "react";
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { storiesOf } from "@storybook/react";
 
-import { Button, Welcome } from '@storybook/react/demo';
+import Button from "../components/Button";
+import Input from "../components/Input";
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+const handlerSubmit = e => {
+  e.preventDefault();
+};
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ));
+storiesOf("Forms", module).add("SignIn", () => {
+  return (
+    <form onSubmit={handlerSubmit}>
+      <Input type="text" name="login" placeholder="Login" />
+      <Input type="password" name="password" placeholder="Password" />
+      <Button type="submit">Submit</Button>
+    </form>
+  );
+});
