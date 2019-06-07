@@ -18,7 +18,7 @@
     "build-storybook": "build-storybook -s public",
     "lint": "eslint src/",
     "lint:fix": "eslint --debug src/ --fix",
-    "prettier": "prettier --write 'src/**/*.js'"
+    "prettier": "prettier --write src/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -56,7 +56,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --max-warnings=0",
+      "eslint --max-warnings=0 --no-ignore",
       "git add"
     ],
     "*.{html,js,json,css}": [
